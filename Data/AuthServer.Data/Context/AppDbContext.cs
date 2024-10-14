@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthServer.Data.DBContext
+namespace AuthServer.Data.Context
 {
     public class AppDbContext : IdentityDbContext<AppUser,AppRole,string>
     {

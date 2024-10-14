@@ -1,11 +1,10 @@
 ﻿
 namespace AuthServer.Core.Configuration
 {
-    public interface Client
+    public class Client
     {
-        public string Id {  get; set; } 
-        public string Secret { get; set; }
-
+        public string ClientId { get; set; }
+        public string ClientSecret { get; set; }
         public List<string> Audiences { get; set; }
     }
 }

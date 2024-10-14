@@ -36,31 +36,67 @@ namespace AuthServer.Service.Services
 
         public async Task<Response<TokenDto>> CreateTokenAsync(LoginDto loginDto)
         {
+            //if (loginDto == null) throw new ArgumentNullException(nameof(loginDto));
+
+            //var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            //if (user == null) 
+            //{ 
+            //    return Response<TokenDto>.Fail("Email or Password is wrong", 400, true);
+            //}
+
+            //if (!await _userManager.CheckPasswordAsync(user, loginDto.Password)) 
+            //{
+            //    return Response<TokenDto>.Fail("Email or Password is wrong", 400, true);
+            //}
+
+            //var token = _tokenServices.CreateToken(user);
+
+            //// veri tabanı kontrol ediyor daha önce refresh token üretildimi diye
+            //var userRefreshToken = await _userRefreshTokenService.Where(x=>x.UserId == user.Id).SingleOrDefaultAsync();
+
+            //if (userRefreshToken == null)
+            //{
+            //    // refresh token database ekleniyor
+            //    await _userRefreshTokenService.AddAsync(new UserRefreshToken { UserId = user.Id, Code = token.RefreshToken, Expiraton = token.RefreshTokenExpiration });
+            //}
+            //else
+            //{// database te refresh token varsa güncelleme işlemi 
+            //    userRefreshToken.Code = token.RefreshToken;
+            //    userRefreshToken.Expiraton = token.RefreshTokenExpiration;
+            //}
+
+            //await _unitOfWork.CommitAsync();
+
+            //return Response<TokenDto>.Success(token, 200);
+
             if (loginDto == null) throw new ArgumentNullException(nameof(loginDto));
 
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
-            if (user == null) 
-            { 
-                return Response<TokenDto>.Fail("Email or Password is wrong", 400, true);
-            }
-
-            if (!await _userManager.CheckPasswordAsync(user, loginDto.Password)) 
+            if (user == null)
             {
                 return Response<TokenDto>.Fail("Email or Password is wrong", 400, true);
             }
 
-            var token = _tokenServices.CreateToken(user);
+            if (!await _userManager.CheckPasswordAsync(user, loginDto.Password))
+            {
+                return Response<TokenDto>.Fail("Email or Password is wrong", 400, true);
+            }
 
-            // veri tabanı kontrol ediyor daha önce refresh token üretildimi diye
-            var userRefreshToken = await _userRefreshTokenService.Where(x=>x.UserId == user.Id).SingleOrDefaultAsync();
+            var token = await _tokenServices.CreateTokenAsync(user); // Asenkron çağrı
+
+            var userRefreshToken = await _userRefreshTokenService.Where(x => x.UserId == user.Id).SingleOrDefaultAsync();
 
             if (userRefreshToken == null)
             {
-                // refresh token database ekleniyor
-                await _userRefreshTokenService.AddAsync(new UserRefreshToken { UserId = user.Id, Code = token.RefreshToken, Expiraton = token.RefreshTokenExpiration });
+                await _userRefreshTokenService.AddAsync(new UserRefreshToken
+                {
+                    UserId = user.Id,
+                    Code = token.RefreshToken,
+                    Expiraton = token.RefreshTokenExpiration
+                });
             }
             else
-            {// database te refresh token varsa güncelleme işlemi 
+            {
                 userRefreshToken.Code = token.RefreshToken;
                 userRefreshToken.Expiraton = token.RefreshTokenExpiration;
             }
@@ -73,9 +109,10 @@ namespace AuthServer.Service.Services
 
         public  Response<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto)
         {
-            var client =  _clients.SingleOrDefault(x => x.Id == clientLoginDto.ClientId && x.Secret == clientLoginDto.ClientSecret);
 
-            if (client == null) 
+            var client = _clients.SingleOrDefault(x => x.ClientId == clientLoginDto.ClientId && x.ClientSecret == clientLoginDto.ClientSecret);
+
+            if (client == null)
             {
                 return Response<ClientTokenDto>.Fail("Client or ClientSecret not found", 404, true);
             }
@@ -100,7 +137,7 @@ namespace AuthServer.Service.Services
                 return Response<TokenDto>.Fail("User not Found", 404, true);
             }
 
-            var tokenDto = _tokenServices.CreateToken(user);
+            var tokenDto = await _tokenServices.CreateTokenAsync(user);
 
             existRefreshToken.Code = tokenDto.RefreshToken;
             existRefreshToken.Expiraton = tokenDto.RefreshTokenExpiration;

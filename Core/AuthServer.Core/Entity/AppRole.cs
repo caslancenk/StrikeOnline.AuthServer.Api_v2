@@ -9,6 +9,6 @@ namespace AuthServer.Core.Entity
 {
     public class AppRole:IdentityRole
     {
-       
+        public ICollection<IdentityUserRole<string>> UserRoles { get; set; }
     }
 }

@@ -15,9 +15,7 @@ namespace AuthServer.Data.Configurations
         {
             builder.Property(x => x.Name).HasMaxLength(50);
             builder.Property(x => x.SurName).HasMaxLength(50);
-            builder.Property(x => x.City).HasMaxLength(30);
 
         }
     }
 }
-

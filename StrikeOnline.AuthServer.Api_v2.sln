@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthServer", "AuthServer", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4D1A4359-55F5-413C-A82C-DC0A1E8ACDDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Api", "Presentation\AuthServer\AuthServer.Api\AuthServer.Api.csproj", "{08E0D1FF-0A11-4440-A002-D200CA320F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.Api", "Presentation\AuthServer\AuthServer.Api\AuthServer.Api.csproj", "{08E0D1FF-0A11-4440-A002-D200CA320F74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1016D0A3-71D8-40A9-BBFE-79EE50EF7FF8}"
 EndProject
@@ -17,15 +17,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{92BF5BAF-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{C1844DCE-EF55-4650-B8C9-CD56C8B65484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Core", "Core\AuthServer.Core\AuthServer.Core.csproj", "{7921BDFC-B7F6-41AE-ABC6-CBD5D83828D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.Core", "Core\AuthServer.Core\AuthServer.Core.csproj", "{7921BDFC-B7F6-41AE-ABC6-CBD5D83828D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Data", "Data\AuthServer.Data\AuthServer.Data.csproj", "{1F970F13-F29B-4EC0-832E-9B058EE6C015}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.Data", "Data\AuthServer.Data\AuthServer.Data.csproj", "{1F970F13-F29B-4EC0-832E-9B058EE6C015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Service", "Service\AuthServer.Service\AuthServer.Service.csproj", "{091C9E96-FFBF-416F-8A86-950162E987C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.Service", "Service\AuthServer.Service\AuthServer.Service.csproj", "{091C9E96-FFBF-416F-8A86-950162E987C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedLibrary", "SharedLibrary", "{5F067FC3-71F2-4050-9D27-63EC2672A354}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.SharedLibrary", "SharedLibrary\AuthServer.SharedLibrary\AuthServer.SharedLibrary.csproj", "{67535B5A-D76C-4F86-98E0-DCDB39DF7EDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.SharedLibrary", "SharedLibrary\AuthServer.SharedLibrary\AuthServer.SharedLibrary.csproj", "{67535B5A-D76C-4F86-98E0-DCDB39DF7EDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{B16682C7-DB7D-4A94-8CA0-8F97D0FCF48C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniApp.API", "MiniApp.API\MiniApp.API.csproj", "{54B6DD76-1518-4395-84B1-85F37F1946DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniApp2.API", "MiniApp2.API\MiniApp2.API.csproj", "{0638885E-D571-43E1-A282-AADCD181B1CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 		{67535B5A-D76C-4F86-98E0-DCDB39DF7EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67535B5A-D76C-4F86-98E0-DCDB39DF7EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67535B5A-D76C-4F86-98E0-DCDB39DF7EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B6DD76-1518-4395-84B1-85F37F1946DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B6DD76-1518-4395-84B1-85F37F1946DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B6DD76-1518-4395-84B1-85F37F1946DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B6DD76-1518-4395-84B1-85F37F1946DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0638885E-D571-43E1-A282-AADCD181B1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0638885E-D571-43E1-A282-AADCD181B1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0638885E-D571-43E1-A282-AADCD181B1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0638885E-D571-43E1-A282-AADCD181B1CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +79,9 @@ Global
 		{1F970F13-F29B-4EC0-832E-9B058EE6C015} = {92BF5BAF-3457-4745-B775-E55CA48A7139}
 		{091C9E96-FFBF-416F-8A86-950162E987C9} = {C1844DCE-EF55-4650-B8C9-CD56C8B65484}
 		{67535B5A-D76C-4F86-98E0-DCDB39DF7EDA} = {5F067FC3-71F2-4050-9D27-63EC2672A354}
+		{B16682C7-DB7D-4A94-8CA0-8F97D0FCF48C} = {DECAE1A6-DD2E-4780-B5AF-DF5CC4A28C2A}
+		{54B6DD76-1518-4395-84B1-85F37F1946DB} = {B16682C7-DB7D-4A94-8CA0-8F97D0FCF48C}
+		{0638885E-D571-43E1-A282-AADCD181B1CB} = {B16682C7-DB7D-4A94-8CA0-8F97D0FCF48C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C40E6B22-C928-4229-B61C-AB868304CCD6}

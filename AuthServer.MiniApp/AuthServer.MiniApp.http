@@ -1,0 +1,6 @@
+@AuthServer.MiniApp_HostAddress = http://localhost:5107
+
+GET {{AuthServer.MiniApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

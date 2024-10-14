@@ -9,8 +9,10 @@ namespace AuthServer.Core.Entity
 {
     public class AppUser : IdentityUser
     {
-        public string Name { get; set; }
-        public string SurName { get; set; }
-        public string City { get; set; }
+        public string? Name { get; set; }
+        public string? SurName { get; set; }
+
+        // Kullanıcının rollerini tutan koleksiyon
+        public ICollection<IdentityUserRole<string>> UserRoles { get; set; } /*= new List<IdentityUserRole<string>>();*/
     }
 }

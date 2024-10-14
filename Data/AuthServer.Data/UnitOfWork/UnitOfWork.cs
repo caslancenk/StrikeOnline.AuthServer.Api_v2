@@ -1,14 +1,14 @@
 ﻿using AuthServer.Core.UnitOfWork;
-using AuthServer.Data.DBContext;
+using AuthServer.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthServer.Data.UnitOfWork
 {
-    public class UntOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _context;
 
-        public UntOfWork(AppDbContext context)
+        public UnitOfWork(AppDbContext context)
         {
             _context = context;
         }

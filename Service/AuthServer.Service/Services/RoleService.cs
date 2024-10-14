@@ -26,7 +26,7 @@ namespace AuthServer.Service.Services
         public async Task<Response<AppRoleDto>> CreateRoleAsync(CreateRoleDto createRoleDto)
         {
             var role = new AppRole 
-            {
+            {                
                 Name = createRoleDto.Name 
             };
 
@@ -46,6 +46,7 @@ namespace AuthServer.Service.Services
 
             var roleDto = roleList.Select(role => new AppRoleDto
             {
+                Id = role.Id,
                 Name = role.Name
             }).ToList();
 

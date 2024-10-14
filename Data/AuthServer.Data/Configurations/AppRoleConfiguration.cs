@@ -13,7 +13,7 @@ namespace AuthServer.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<AppRole> builder)
         {
-            builder.Property(x=>x.Name).HasMaxLength(32);
+            builder.Property(x => x.Name).HasMaxLength(32);
         }
     }
 }

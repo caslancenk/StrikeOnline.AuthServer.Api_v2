@@ -10,5 +10,6 @@ namespace AuthServer.Core.Dtos
     {
         public string ClientId { get; set; }
         public string ClientSecret { get; set; }
+
     }
 }

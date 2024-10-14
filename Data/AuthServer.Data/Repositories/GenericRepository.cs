@@ -1,5 +1,5 @@
 ﻿using AuthServer.Core.Repositories;
-using AuthServer.Data.DBContext;
+using AuthServer.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
